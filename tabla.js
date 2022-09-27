@@ -1,6 +1,5 @@
-const formularioTabla = document.querySelector("#formulario-tabla"); //Non usar event, xa que se refire ao window.event e non se recomenda
-const mostrarTabla = () => {
-  this.event.preventDefault();
+const mostrarTabla = (evento) => {
+  evento.preventDefault();
   const numero = Number(document.getElementById("numero").value);
   if (numero >= 0 && numero <= 10) {
     let tabla = document.getElementById("tabla");
@@ -16,6 +15,9 @@ const mostrarTabla = () => {
     document.getElementById("numero").value = "";
   }
 };
+
+const formularioTabla = document.getElementById("formulario-tabla"); //Non usar event, xa que se refire ao window.event global e non se recomenda.
+formularioTabla.addEventListener("submit", mostrarTabla, false);
 
 //Código inicial
 // const mostrarTabla = () => {
